@@ -51,9 +51,9 @@ var myPlayList = [{
 
 // DOCUMENT READY FUNCTION
 $(document).ready(function() {
-	$('body').append("<p> : " + mySong.+ "</p>");
-	$('body').append("<p> My Song: " + mySong.title + "</p>");
-	$('body').append("<p> Artist: " + mySong.artist + "</p>");
+	$('body').append("<h3>" + mySong.title + "</h3>");
+	$('body').append("<h4>" + mySong.artist + "</h4>");
+	$('body').append("<a href=" + mySong.mp3url + "</a>");
 
 
 
