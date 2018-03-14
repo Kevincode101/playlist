@@ -51,23 +51,46 @@ var myPlayList = [{
 
 // DOCUMENT READY FUNCTION
 $(document).ready(function() {
-	$('body').append("<h3>" + mySong.title + "</h3>");
-	$('body').append("<h4>" + mySong.artist + "</h4>");
-	$('body').append("<a href=" + mySong.mp3url + "</a>");
+	displayList();
+	$("#addSong").click(function() {
+		var title = $('#title').val()
+		var artist = $('#artist').val()
+		var link = $('#link').val()
+		var albumCover = $('#albumCover').val()
+		var newSong = {
+			"title": title,
+			"artist": artist,
+			"mp3-url": link,
+			"image-url": albumCover,
+		}
+		myPlayList.push(newSong);
+		displayList();
+		$('#clearSongs').click(function() {
+			clearList();
+		})
+
+	});
 
 
-
+	// https://www.what-dog.net/Images/faces2/scroll001.jpg
 });
 
 function displayList() {
-
+	$('.songs').html("");
+	for (var i = 0; i <= myPlayList.length - 1; i++) {
+		$('.songs').append("<h3>" + myPlayList[i].title + "</h3>");
+		$('.songs').append("<h4>" + myPlayList[i].artist + "</h4>");
+		$('.songs').append("<img src=" + myPlayList[i]['image-url'] + " width='300px' height='300px' >")
+		$('.songs').append("<button>  Delete </button>");
+		$('.songs').append("<a href=" + myPlayList[i]["mp3-url"] + ">play</a>");
+	}
 
 
 }
 
 function clearList() {
-
-
+	$('.songs').html("");
+	myPlayList = [];
 
 }
 
@@ -75,4 +98,8 @@ function addSong() {
 
 
 
+}
+
+function elimnate(){
+	
 }
